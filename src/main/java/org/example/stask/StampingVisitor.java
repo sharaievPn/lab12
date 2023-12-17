@@ -11,20 +11,20 @@ public class StampingVisitor {
     public Map onGroupStart(Group group, Map<String, String> headers) {
         this.inGroup = true;
         Map<String, Object> res = new HashMap<>();
-        List<Boolean> inGroup = new ArrayList<>();
-        res.put("in group", inGroup);
+        List<Boolean> inGroupList = new ArrayList<>();
+        res.put("in group", inGroupList);
         res.put("stamped headers", List.of("in_group"));
         return res;
     }
 
-    public void onGroupEnd (Group group, Map<String, String> headers) {
+    public void onGroupEnd(Group group, Map<String, String> headers) {
         this.inGroup = false;
     }
 
-    public Map onSignature (Task sig, Map<String, String> headers) {
+    public Map onSignature(Task sig, Map<String, String> headers) {
         Map<String, Object> res = new HashMap<>();
-        List<Boolean> inGroup = new ArrayList<>();
-        res.put("in group", inGroup);
+        List<Boolean> inGroupList = new ArrayList<>();
+        res.put("in group", inGroupList);
         res.put("stamped headers", List.of("in_group"));
         return res;
     }
